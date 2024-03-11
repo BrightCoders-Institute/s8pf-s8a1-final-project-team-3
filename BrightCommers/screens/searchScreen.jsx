@@ -31,7 +31,7 @@ const searchScreen = () => {
           <View style={styles.itemContainer}>
               <ImageBackground
                   source={{uri: item.photo}}
-                  resizeMode='cover'
+                  resizeMode='contain'
                   style={styles.itemPhoto}
                   >
               </ImageBackground>
