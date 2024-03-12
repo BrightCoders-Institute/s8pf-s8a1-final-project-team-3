@@ -1,9 +1,10 @@
-import React from 'react'
-import { Text, View } from 'react-native';
+import React from 'react';
 import Login from './src/screens/Login';
+// import Registrer from './src/screens/Registrer';
 const App = () => {
   return (
-    <Login/>
+    // <Registrer/>
+     <Login/>
   )
 }
 
