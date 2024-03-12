@@ -1,5 +1,5 @@
 module.exports = {
-  root: true,
+  root: 0,
   extends: '@react-native',
   rules: {
     'prettier/prettier': ['error', {endOfLine: 'auto'}],

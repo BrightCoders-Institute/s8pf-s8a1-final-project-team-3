@@ -5,7 +5,7 @@ const App = () => {
   return (
     // <Registrer/>
      <Login/>
-  )
-}
+  );
+};
 
 export default App;
