@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, TextInput, Button, Alert, Image, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {View, TextInput, Alert, Text, ScrollView, TouchableOpacity} from 'react-native';
 import Logo from '../assets/img/origlogo.svg';
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
   return (
     <ScrollView>
       <View style={styles.container}>
-         <Logo/>
+        <Logo style={styles.logo} />
         <View style={styles.form}>
           <Text style={styles.formText}>Email: </Text>
           <TextInput
@@ -40,7 +40,7 @@ const Login = () => {
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={styles.textRegistrer}> Forgot Password? </Text>
+            <Text style={styles.textRegistrer}> Registrer </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -54,11 +54,14 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    marginTop: 50, // Mover todos los elementos hacia abajo
+    marginTop: 40,
+  },
+  logo: {
+    top: -100,
   },
   form: {
     width: '100%',
-    marginBottom: 170,
+    top: -185,
   },
   input: {
     borderWidth: 1,
@@ -70,6 +73,7 @@ const styles = {
   },
   formText: {
     marginBottom: 6,
+    marginTop: 15,
     fontSize: 16,
     marginRight: 150,
     fontWeight: 'bold',
@@ -79,13 +83,14 @@ const styles = {
     marginLeft: 230,
     fontSize: 16,
     textDecorationLine: 'underline',
+    fontWeight: 'bold',
   },
   button: {
     backgroundColor: 'blue',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
-    marginVertical: 5,
+    marginVertical: 45,
   },
   buttonText: {
     color: 'white',
@@ -95,9 +100,11 @@ const styles = {
   },
 
   textRegistrer: {
+    marginLeft: 150,
     fontSize: 16,
     marginBottom: 15,
     textDecorationLine: 'underline',
+    fontWeight: 'bold',
   },
 };
 
