@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, StatusBar, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, ScrollView, StatusBar, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Greeting from "../src/components/greeting";
 import SearchBar from "../src/components/searchBar";
+import Categories from "../src/components/categories";
+import PopularCard from "../src/components/popularCard";
+import Discounts from '../src/components/discounts';
 
 const HomeScreen = () => {
     return (
@@ -9,16 +12,41 @@ const HomeScreen = () => {
             <StatusBar backgroundColor="white" barStyle="dark-content" />
             <Greeting />
             <SearchBar />
-            <View style={styles.row}>
-                <Text style={styles.title}>
-                    Categories
-                </Text>
-                <TouchableOpacity>
-                    <Text style={styles.action}>
-                        See All
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View style={styles.row}>
+                    <Text style={styles.title}>
+                        Categories
                     </Text>
-                </TouchableOpacity>
-            </View>
+                    <TouchableOpacity>
+                        <Text style={styles.action}>
+                            See All
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                <Categories />
+                <View style={styles.row}>
+                    <Text style={styles.title}>
+                        Popular
+                    </Text>
+                    <TouchableOpacity>
+                        <Text style={styles.action}>
+                            See All
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                <PopularCard />
+                <View style={styles.row}>
+                    <Text style={styles.title}>
+                        Discounts
+                    </Text>
+                    <TouchableOpacity>
+                        <Text style={styles.action}>
+                            See All
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                <Discounts />
+            </ScrollView>
         </View>
     );
 };
