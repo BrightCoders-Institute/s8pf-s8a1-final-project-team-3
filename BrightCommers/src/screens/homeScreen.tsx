@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, ScrollView, StatusBar, Text, TouchableOpacity, StyleSheet } from "react-native";
-import Greeting from "../src/components/greeting";
-import SearchBar from "../src/components/searchBar";
-import Categories from "../src/components/categories";
-import PopularCard from "../src/components/popularCard";
-import Discounts from '../src/components/discounts';
+import Greeting from "../components/greeting";
+import SearchBar from "../components/searchBar";
+import Categories from "../components/categories";
+import PopularCard from "../components/popularCard";
+import Discounts from '../components/discounts';
 
 const HomeScreen = () => {
     return (

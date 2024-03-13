@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StatusBar, Text, TouchableOpacity, StyleSheet, ImageBackground } from "react-native";
-import Greeting from "../src/components/greeting";
-import SearchBar from "../src/components/searchBar";
+import Greeting from "../components/greeting";
+import SearchBar from "../components/searchBar";
 
 const ShoppingScreen = () => {
     return (
