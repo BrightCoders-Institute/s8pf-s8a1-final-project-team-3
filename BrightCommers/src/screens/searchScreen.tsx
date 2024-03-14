@@ -10,9 +10,9 @@ import {
   ImageBackground
 } from 'react-native';
 
-import {properties} from '../Properties.json';
-import Greeting from '../src/components/greeting';
-import SearchBar from '../src/components/searchBar';
+import {properties} from '../../Properties.json';
+import Greeting from '../components/greeting';
+import SearchBar from '../components/searchBar';
 
 const searchScreen = () => {
   return (

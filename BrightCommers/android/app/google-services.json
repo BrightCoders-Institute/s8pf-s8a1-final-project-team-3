@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "675718410340",
+    "project_id": "brightcommers-6aba3",
+    "storage_bucket": "brightcommers-6aba3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675718410340:android:44ef09409c774d1cf32f71",
+        "android_client_info": {
+          "package_name": "com.brightcommers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsa3Tn1HDS5re-2F0X4ZjeOOj2VuKr-zY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

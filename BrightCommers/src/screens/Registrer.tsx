@@ -1,46 +1,57 @@
 import React, {useState} from 'react';
 import {View, TextInput, Alert, Text, ScrollView, TouchableOpacity} from 'react-native';
 import Logo from '../assets/img/origlogo.svg';
+import auth from '@react-native-firebase/auth';
 
-const Login = () => {
+const Registrer = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Aquí puedes agregar la lógica para iniciar sesión con el email y contraseña proporcionados
-    Alert.alert('Login', `Email: ${email}, Password: ${password}`);
-  };
+    try {
+        auth().createUserWithEmailAndPassword(email, password).then(() => {
+            Alert.alert("User Created with those credentials please login")
+        })
+    } catch (error) {
+        console.log(error)
+        Alert.alert("User not created, try again later")
+    }
+}
 
   return (
     <ScrollView>
       <View style={styles.container}>
         <Logo style={styles.logo} />
         <View style={styles.form}>
+          <Text style={styles.formText}>Name: </Text>
+          <TextInput
+            placeholder="name"
+            keyboardType="email-address"
+            autoCapitalize="none"
+            style={styles.input}
+          />
+          <Text style={styles.formText}>Last name: </Text>
+          <TextInput
+            placeholder="Last name "
+            style={styles.input}
+          />
           <Text style={styles.formText}>Email: </Text>
           <TextInput
             placeholder="Email"
             value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
+            onChangeText={text => setEmail(text)}
             style={styles.input}
           />
           <Text style={styles.formText}>Password: </Text>
           <TextInput
             placeholder="Password"
             value={password}
-            onChangeText={setPassword}
+            onChangeText={text => setPassword(text)}
             secureTextEntry
             style={styles.input}
           />
-          <TouchableOpacity>
-            <Text style={styles.textForgot}> Forgot Password? </Text>
-          </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.textRegistrer}> Registrer </Text>
+            <Text style={styles.buttonText}>Registrer</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -54,20 +65,20 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    marginTop: 40,
+    marginTop: 20,
   },
   logo: {
     top: -100,
   },
   form: {
     width: '100%',
-    top: -185,
+    top: -215,
   },
   input: {
     borderWidth: 1,
     borderColor: 'gray',
     borderRadius: 10,
-    padding: 10,
+    padding: 7,
     marginBottom: 10,
     width: '100%',
   },
@@ -87,7 +98,7 @@ const styles = {
   },
   button: {
     backgroundColor: 'blue',
-    paddingVertical: 10,
+    paddingVertical: 8,
     paddingHorizontal: 20,
     borderRadius: 10,
     marginVertical: 45,
@@ -108,4 +119,5 @@ const styles = {
   },
 };
 
-export default Login;
+export default Registrer;
+
