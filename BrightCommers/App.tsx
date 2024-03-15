@@ -1,12 +1,20 @@
 import React from 'react';
-import Login from './src/screens/Login';
-import Registrer from './src/screens/Registrer';
-import ShoppingScreen from './src/screens/shoppingScreen';
-// import Registrer from './src/screens/Registrer';
+import { NavigationContainer } from '@react-navigation/native';
+import TabBottomP from './src/navigation/TabBottomP';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Safearea from './src/layout/Safearea';
+import StackNavP from './src/navigation/StackNavP';
+
 const App = () => {
   return (
-     <Login/>
-  );
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Safearea>
+        <StackNavP/>
+        </Safearea>
+    </NavigationContainer>  
+    </SafeAreaProvider>
+    );
 };
 
 export default App;

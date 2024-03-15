@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, StatusBar, Text, TouchableOpacity, StyleSheet, ImageBackground } from "react-native";
+import { View, StatusBar, Text, TouchableOpacity, StyleSheet, ImageBackground, Platform } from "react-native";
 import Greeting from "../components/greeting";
 import SearchBar from "../components/searchBar";
+import Safearea from '../layout/Safearea';
+
 
 const ShoppingScreen = () => {
+
     return (
-        <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <View>
             <StatusBar backgroundColor="white" barStyle="dark-content" />
             <Greeting />
             <SearchBar />
