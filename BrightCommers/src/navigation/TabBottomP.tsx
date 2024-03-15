@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/homeScreen';
@@ -16,7 +17,7 @@ const TabBottomP = () => {
       <Tab.Screen
         name="Home"
         component={HomeScreen} 
-      options={{
+      options={{ 
         tabBarIcon: ({ focused }) => {
           return (
             <View style={[{flexDirection: 'column', justifyContent:'center', alignItems: 'center',width: '100%', gap:5}, Platform.OS === 'ios' && {marginTop: 20}]}>

@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { View, StatusBar, Text, TouchableOpacity, StyleSheet, ImageBackground, Platform } from "react-native";
 import Greeting from "../components/greeting";

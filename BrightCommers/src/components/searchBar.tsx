@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { View, TextInput, TouchableOpacity, Image } from 'react-native';
 import Glass from '../assets/icons/glass.svg';
