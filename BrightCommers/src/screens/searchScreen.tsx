@@ -14,7 +14,7 @@ import {properties} from '../../Properties.json';
 import Greeting from '../components/greeting';
 import SearchBar from '../components/searchBar';
 
-const searchScreen = () => {
+const SearchScreen = () => {
   return (
     <>
       <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -137,4 +137,4 @@ seconContainer: {
 },
 });
 
-export default searchScreen;
+export default SearchScreen;
