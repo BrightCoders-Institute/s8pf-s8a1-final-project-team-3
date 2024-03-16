@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Kitchen from "../assets/icons/chef-hat.svg";
