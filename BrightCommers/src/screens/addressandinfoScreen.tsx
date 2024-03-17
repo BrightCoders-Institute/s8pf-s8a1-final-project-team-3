@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, Text, Button } from "react-native";
+import { View, TextInput, StyleSheet, Text, Button, ScrollView, TouchableOpacity } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const AddressandinfoScreen = () => {
@@ -11,71 +11,80 @@ const AddressandinfoScreen = () => {
     const [phone, setPhoneText] = useState(""); //input for phone number
 
     return (
-        <View style={styles.container}>
-            <Text>Name: </Text>
+        <ScrollView contentContainerStyle={styles.container}>
+            <Text style={styles.title}>Name: </Text>
             <TextInput
                 style={styles.input}
                 value={name}
                 onChangeText={setNameText}
                 placeholder="Enter your name"
             />
-            <Text>Zip: </Text>
+            <Text style={styles.title}>Zip: </Text>
             <TextInput 
                 style={styles.input}
                 value={zip}
                 onChangeText={setZipText}
                 placeholder="Enter your zip code"
             />
-            <Text>State: </Text>
+            <Text style={styles.title}>State: </Text>
             <TextInput 
                 style={styles.input}
                 value={state}
                 onChangeText={setStateText}
                 placeholder="Enter your state"
             />
-            <Text>City: </Text>
+            <Text style={styles.title}>City: </Text>
             <TextInput 
                 style={styles.input}
                 value={city}
                 onChangeText={setCityText}
                 placeholder="Enter your city"
             />
-            <Text>Address: </Text>
+            <Text style={styles.title}>Address: </Text>
             <TextInput 
                 style={styles.input}
                 value={address}
                 onChangeText={setAddressText}
                 placeholder="Enter your address"
             />
-            <Text>Phone: </Text>
+            <Text style={styles.title}>Phone: </Text>
             <TextInput 
                 style={styles.input}
                 value={phone}
                 onChangeText={setPhoneText}
                 placeholder="Enter your phone number"
             />
+            <Text style={styles.title}>It's your home or office?</Text>
             <BouncyCheckbox
                 size={25}
-                fillColor="#5f6def"
+                fillColor="blue"
                 unfillColor="#fff"
                 text={"Home"}
                 textStyle={styles.checkBoxText}
                 iconStyle={styles.checkBoxRadius}
                 innerIconStyle={styles.checkBoxRadius}
-                />
-            <Button
-            title="Learn More"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
             />
-        </View>
+            <BouncyCheckbox
+                size={25}
+                fillColor="blue"
+                unfillColor="#fff"
+                text={"Office"}
+                textStyle={styles.checkBoxText}
+                iconStyle={styles.checkBoxRadius}
+                innerIconStyle={styles.checkBoxRadius}
+            />
+           <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Save</Text>
+          </TouchableOpacity>
+        </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexGrow: 1,
         backgroundColor: "#ffffff",
+        padding: 20,
     },
     input: {
         height: 40,
@@ -83,20 +92,32 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         paddingHorizontal: 10,
-        margin: 16,
+        marginBottom: 16,
     },
-    termsContainer: {
-        flexDirection: 'row',
-        },
-        checkBoxRadius: {
+    title: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 8,
+    },
+    checkBoxRadius: {
         borderRadius: 0,
-        },
-        checkBoxText: {
+    },
+    checkBoxText: {
         textDecorationLine: 'none',
-        },
-        text: {
-        color: 'red',
-        },
+    },
+    button: {
+        backgroundColor: 'blue',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 10,
+        marginVertical: 45,
+      },
+      buttonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 18,
+        textAlign: 'center',
+      },
 });
 
 export default AddressandinfoScreen;
