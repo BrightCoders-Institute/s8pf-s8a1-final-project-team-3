@@ -1,17 +1,21 @@
 import React from 'react';
-import Login from './src/screens/Login';
-import Registrer from './src/screens/Registrer';
-import ShoppingScreen from './src/screens/shoppingScreen';
-import HomeScreen from './src/screens/homeScreen';
-import Porfile from './src/screens/Porfile';
-import EditName from './src/screens/EditName';
-import EditEmail from './src/screens/EditEmail';
-import EditPassword from './src/screens/EditPassword';
-// import Registrer from './src/screens/Registrer';
+
+import { NavigationContainer } from '@react-navigation/native';
+import TabBottomP from './src/navigation/TabBottomP';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Safearea from './src/layout/Safearea';
+import StackNavP from './src/navigation/StackNavP';
+
 const App = () => {
   return (
-    <Porfile/>
-  );
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Safearea>
+        <StackNavP/>
+        </Safearea>
+    </NavigationContainer>  
+    </SafeAreaProvider>
+    );
 };
 
 export default App;

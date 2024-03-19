@@ -3,7 +3,7 @@ import {View, TextInput, Alert, Text, ScrollView, TouchableOpacity} from 'react-
 import Logo from '../assets/img/origlogo.svg';
 import auth from '@react-native-firebase/auth';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,6 +12,8 @@ const Login = () => {
     .then((resp) => {
         console.log(resp)
         Alert.alert("logged in successfully")
+        // navigation.navigate('TabHome')
+        navigation.replace('TabHome')
     })
     .catch((error) => {
         console.log(error.nativeErrorMessage)
@@ -19,8 +21,11 @@ const Login = () => {
     })
 }
 
+const RegisterScreenMove = () => {
+  navigation.replace('Register')
+}
+
   return (
-    <ScrollView>
       <View style={styles.container}>
         <Logo style={styles.logo} />
         <View style={styles.form}>
@@ -41,28 +46,32 @@ const Login = () => {
             secureTextEntry
             style={styles.input}
           />
-          <TouchableOpacity>
-            <Text style={styles.textForgot}> Forgot Password? </Text>
+          <TouchableOpacity style={styles.textForgot}>
+            <Text style={styles.textFor}> Forgot Password? </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={loginwithemail}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={RegisterScreenMove} style={styles.btnregister}>
             <Text style={styles.textRegistrer}> Registrer </Text>
           </TouchableOpacity>
         </View>
       </View>
-    </ScrollView>
   );
 };
 
+
+
+export default Login;
+
 const styles = {
   container: {
+    backgroundColor: 'white',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    marginTop: 40,
+    paddingTop: 40,
   },
   logo: {
     top: -100,
@@ -87,8 +96,11 @@ const styles = {
     fontWeight: 'bold',
   },
   textForgot: {
-    marginBottom: 22,
-    marginLeft: 230,
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  textFor:{
     fontSize: 16,
     textDecorationLine: 'underline',
     fontWeight: 'bold',
@@ -108,12 +120,12 @@ const styles = {
   },
 
   textRegistrer: {
-    marginLeft: 150,
     fontSize: 16,
-    marginBottom: 15,
     textDecorationLine: 'underline',
     fontWeight: 'bold',
   },
+  btnregister:{
+    flexDirection: 'row',
+    justifyContent: 'center',
+  }
 };
-
-export default Login;
