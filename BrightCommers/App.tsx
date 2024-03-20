@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { NavigationContainer } from '@react-navigation/native';
 import TabBottomP from './src/navigation/TabBottomP';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
