@@ -1,12 +1,12 @@
 import React from 'react'
 import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/homeScreen';
-import ShoppingScreen from '../screens/ShoppingScreen';
+import ShoppingScreen from '../screens/shoppingScreen';
 import { Platform, Text, View } from 'react-native';
 import Home from '../assets/icons/Home.svg';
 import Porfile from '../assets/icons/Porfile.svg';
 import Heart from '../assets/icons/Heart.svg';
-import SearchScreen from '../screens/SearchScreen';
+import SearchScreen from '../screens/searchScreen';
 
 const Tab = createBottomTabNavigator();
 
