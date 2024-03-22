@@ -17,11 +17,8 @@
     "@react-navigation/stack": "^6.3.28",
     "react": "18.2.0",
     "react-native": "0.73.4",
-<<<<<<< HEAD
     "react-native-bouncy-checkbox": "^3.0.7",
-=======
     "react-native-gesture-handler": "^2.15.0",
->>>>>>> f4db53eb99aa4e3c667c4d48ab4d73448d9431b9
     "react-native-safe-area-context": "^4.9.0",
     "react-native-screens": "^3.29.0",
     "react-native-svg": "^15.1.0",

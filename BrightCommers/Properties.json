@@ -2,38 +2,88 @@
     "properties": [
       {
         "description": "Wireless Dualsense controller Playstation 5 Cosmic White",
+        "descriptionKitchen": "Kitchen Gizmo - Colador Snap N Strain de pasta para ollas, colador de silicona ajustable con clip para ollas",
+        "descriptionGaming": "CyberpowerPC Gamer Xtreme VR Gaming PC, Intel i5-10400F 2.9GHz,",
+        "descriptionHome": "Hisense RR63D6WBX Refrigerador 6.3 Pies con Dispensador de Agua ",
+        "descriptionSchool": "Alitte Small Spiral Notebooks - College-Ruled Mini NotePads for School, Home, Office",
+        "descriptionWorkout": "Lifepro Home Gym Portable Equipment - Strength Training, Resistance Equipment ",
         "price": "$60",
         "shipping": "Free Shipping",
         "calification": "4.3",
-        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__"
+        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__",
+        "photoKitchen" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-jNaUWVwh5qOEIG_fpw2BG6KAvcSUQTducQ&usqp=CAU",
+        "photoGaming": "https://m.media-amazon.com/images/I/81Wx7hw9vwL.jpg",
+        "photoHome": "https://clipart.info/images/ccovers/1486144528home-appliances-png-quality.png",
+        "photoSchool": "https://www.raymondgeddes.com/cdn/shop/articles/iStock-1213573873_1.jpg?v=1682079446",
+        "photoWorkout": "https://target.scene7.com/is/image/Target/GUEST_5b9c1533-d081-4b47-aa29-763c5969bc31?wid=488&hei=488&fmt=pjpeg"
       },
       {
         "description": "Wireless Dualsense controller Playstation 5 Cosmic White",
+        "descriptionKitchen": "Kitchen Gizmo - Colador Snap N Strain de pasta para ollas, colador de silicona ajustable con clip para ollas",
+        "descriptionGaming": "CyberpowerPC Gamer Xtreme VR Gaming PC, Intel i5-10400F 2.9GHz,",
+        "descriptionHome": "Hisense RR63D6WBX Refrigerador 6.3 Pies con Dispensador de Agua ",
+        "descriptionSchool": "Alitte Small Spiral Notebooks - College-Ruled Mini NotePads for School, Home, Office",
+        "descriptionWorkout": "Lifepro Home Gym Portable Equipment - Strength Training, Resistance Equipment ",
         "price": "$60",
         "shipping": "Free Shipping",
         "calification": "4.3",
-        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__"
+        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__",
+        "photoKitchen" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-jNaUWVwh5qOEIG_fpw2BG6KAvcSUQTducQ&usqp=CAU",
+        "photoGaming": "https://m.media-amazon.com/images/I/81Wx7hw9vwL.jpg",
+        "photoHome": "https://clipart.info/images/ccovers/1486144528home-appliances-png-quality.png",
+        "photoSchool": "https://www.raymondgeddes.com/cdn/shop/articles/iStock-1213573873_1.jpg?v=1682079446",
+        "photoWorkout": "https://target.scene7.com/is/image/Target/GUEST_5b9c1533-d081-4b47-aa29-763c5969bc31?wid=488&hei=488&fmt=pjpeg"
       },
       {
         "description": "Wireless Dualsense controller Playstation 5 Cosmic White",
+        "descriptionKitchen": "Kitchen Gizmo - Colador Snap N Strain de pasta para ollas, colador de silicona ajustable con clip para ollas",
+        "descriptionGaming": "CyberpowerPC Gamer Xtreme VR Gaming PC, Intel i5-10400F 2.9GHz,",
+        "descriptionHome": "Hisense RR63D6WBX Refrigerador 6.3 Pies con Dispensador de Agua ",
+        "descriptionSchool": "Alitte Small Spiral Notebooks - College-Ruled Mini NotePads for School, Home, Office",
+        "descriptionWorkout": "Lifepro Home Gym Portable Equipment - Strength Training, Resistance Equipment ",
         "price": "$60",
         "shipping": "Free Shipping",
         "calification": "4.3",
-        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__"
+        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__",
+        "photoKitchen" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-jNaUWVwh5qOEIG_fpw2BG6KAvcSUQTducQ&usqp=CAU",
+        "photoGaming": "https://m.media-amazon.com/images/I/81Wx7hw9vwL.jpg",
+        "photoHome": "https://clipart.info/images/ccovers/1486144528home-appliances-png-quality.png",
+        "photoSchool": "https://www.raymondgeddes.com/cdn/shop/articles/iStock-1213573873_1.jpg?v=1682079446",
+        "photoWorkout": "https://target.scene7.com/is/image/Target/GUEST_5b9c1533-d081-4b47-aa29-763c5969bc31?wid=488&hei=488&fmt=pjpeg"
       },
       {
         "description": "Wireless Dualsense controller Playstation 5 Cosmic White",
+        "descriptionKitchen": "Kitchen Gizmo - Colador Snap N Strain de pasta para ollas, colador de silicona ajustable con clip para ollas",
+        "descriptionGaming": "CyberpowerPC Gamer Xtreme VR Gaming PC, Intel i5-10400F 2.9GHz,",
+        "descriptionHome": "Hisense RR63D6WBX Refrigerador 6.3 Pies con Dispensador de Agua ",
+        "descriptionSchool": "Alitte Small Spiral Notebooks - College-Ruled Mini NotePads for School, Home, Office",
+        "descriptionWorkout": "Lifepro Home Gym Portable Equipment - Strength Training, Resistance Equipment ",
         "price": "$60",
         "shipping": "Free Shipping",
         "calification": "4.3",
-        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__"
+        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__",
+        "photoKitchen" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-jNaUWVwh5qOEIG_fpw2BG6KAvcSUQTducQ&usqp=CAU",
+        "photoGaming": "https://m.media-amazon.com/images/I/81Wx7hw9vwL.jpg",
+        "photoHome": "https://clipart.info/images/ccovers/1486144528home-appliances-png-quality.png",
+        "photoSchool": "https://www.raymondgeddes.com/cdn/shop/articles/iStock-1213573873_1.jpg?v=1682079446",
+        "photoWorkout": "https://target.scene7.com/is/image/Target/GUEST_5b9c1533-d081-4b47-aa29-763c5969bc31?wid=488&hei=488&fmt=pjpeg"
       },
       {
         "description": "Wireless Dualsense controller Playstation 5 Cosmic White",
+        "descriptionKitchen": "Kitchen Gizmo - Colador Snap N Strain de pasta para ollas, colador de silicona ajustable con clip para ollas",
+        "descriptionGaming": "CyberpowerPC Gamer Xtreme VR Gaming PC, Intel i5-10400F 2.9GHz,",
+        "descriptionHome": "Hisense RR63D6WBX Refrigerador 6.3 Pies con Dispensador de Agua ",
+        "descriptionSchool": "Alitte Small Spiral Notebooks - College-Ruled Mini NotePads for School, Home, Office",
+        "descriptionWorkout": "Lifepro Home Gym Portable Equipment - Strength Training, Resistance Equipment ",
         "price": "$60",
         "shipping": "Free Shipping",
         "calification": "4.3",
-        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__"
+        "photo": "https://s3-alpha-sig.figma.com/img/3220/1422/b0f1ddfcd408decfa7e5d738ff8f6fe3?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FKNYbwh3vJBcbr2FOwQ41H71PuwJonXeQD5EobZdsEQ1b45qn0TfGId69uGLM8QVnl2QUBTulnIGwGxblXFmB-E8J5VmqyDDl43-90B-vQDnESBYBtiWrJh7g3z9Qg6ZksE2gY6a8SKDnLjOLhmhIgrZx5gOdr0AIAHAI4hkt2I0cy9DqnZtXeqGmquee3FJYo7v69dNxCVBqzd~8y8059XhW40QyilqMD90XrIplGH1rrLdfy1hLjzxWavUi9Q3MaiID2KtNZRgX01b0l6v78~X8zqE-KGLlQAUjlKUc36~4ABrYd3ykF8j0KY5aE~Ml3qxUC6es4FOJ2FpxJqH9g__",
+        "photoKitchen" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-jNaUWVwh5qOEIG_fpw2BG6KAvcSUQTducQ&usqp=CAU",
+        "photoGaming": "https://m.media-amazon.com/images/I/81Wx7hw9vwL.jpg",
+        "photoHome": "https://clipart.info/images/ccovers/1486144528home-appliances-png-quality.png",
+        "photoSchool": "https://www.raymondgeddes.com/cdn/shop/articles/iStock-1213573873_1.jpg?v=1682079446",
+        "photoWorkout": "https://target.scene7.com/is/image/Target/GUEST_5b9c1533-d081-4b47-aa29-763c5969bc31?wid=488&hei=488&fmt=pjpeg"
       }
     ]
   }
