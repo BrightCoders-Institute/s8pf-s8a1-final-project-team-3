@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import TabBottomP from './TabBottomP';
 import Registrer from '../screens/Registrer';
 import Login from '../screens/Login';
+import KitchenScreen from '../screens/kitchenScreen';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ const StackNavP = () => {
       <Stack.Screen name="TabHome" component={TabBottomP} />
     </Stack.Navigator>
     */
-    <Registrer />
+    <KitchenScreen />
   )
 }
 
