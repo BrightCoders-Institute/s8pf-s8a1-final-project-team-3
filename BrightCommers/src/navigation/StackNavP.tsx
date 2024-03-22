@@ -4,6 +4,10 @@ import TabBottomP from './TabBottomP';
 import Registrer from '../screens/Registrer';
 import Login from '../screens/Login';
 import KitchenScreen from '../screens/kitchenScreen';
+import GamingScreen from '../screens/GamingScreen';
+import HomeScreenProducts from '../screens/HomeScreenProducts';
+import SchoolScreen from '../screens/SchoolScreen';
+import WorkoutScreen from '../screens/WorkoutScreen';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +20,7 @@ const StackNavP = () => {
       <Stack.Screen name="TabHome" component={TabBottomP} />
     </Stack.Navigator>
     */
-    <KitchenScreen />
+    <WorkoutScreen />
   )
 }
 
