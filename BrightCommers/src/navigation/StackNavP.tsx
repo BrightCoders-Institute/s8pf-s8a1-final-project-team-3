@@ -9,6 +9,7 @@ import HomeScreenProducts from '../screens/HomeScreenProducts';
 import SchoolScreen from '../screens/SchoolScreen';
 import WorkoutScreen from '../screens/WorkoutScreen';
 
+
 const Stack = createStackNavigator();
 
 const StackNavP = () => {
