@@ -6,6 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Safearea from './src/layout/Safearea';
 import StackNavP from './src/navigation/StackNavP';
 
+
 const App = () => {
   return (
     <SafeAreaProvider>
