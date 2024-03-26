@@ -1,9 +1,6 @@
 import React from 'react'
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Flecha from '../assets/icons/arrowleft.svg';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-
 const EditName = () => {
   return (
       <View style={styles.container}>
