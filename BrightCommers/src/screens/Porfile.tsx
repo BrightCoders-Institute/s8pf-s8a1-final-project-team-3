@@ -5,7 +5,54 @@ import Flecha from '../assets/icons/arrowleft.svg';
 const Porfile = () => {
   return (
     <View style={styles.container}>
-        <View style={styles.header}>
+      <View style={styles.header}>
+      <View>
+          <Flecha style={styles.arrow}/>
+          </View>
+            <Text style={styles.textHeader}>Mi perfil </Text>
+      </View>
+      <View style={styles.card}>
+      <View>
+           <Logo style={styles.logo}/> 
+      </View>
+          <Text style={styles.user}>Nombre de usuario</Text>
+          <Text style={styles.email}>ExampleCorreo@gmail.com</Text>
+      </View>
+      <View style={styles.cardEdit}>
+
+      <View>
+              <View>
+                <Text style={styles.userEdit}>Nombre de usuario:</Text>
+                <Text style={styles.userExample}>Nombre de usuario example</Text>
+             </View>
+              <View>
+                <Text style={styles.userEdit}>Correo:</Text>
+                <Text style={styles.userExample}>ExampleCorreo@gmail.com</Text>
+             </View>
+               <View>
+                <Text style={styles.userEdit}>Contrasena</Text>
+                <Text style={styles.userExample}>********</Text>
+             </View>
+           </View>
+             <View>
+              <View>
+               <TouchableOpacity style={styles.btnEditUser}>
+                <Text style={styles.txtEdit}>Editar</Text>
+               </TouchableOpacity>
+             </View>
+             <View>
+               <TouchableOpacity style={styles.btnEditEmail}>
+                <Text style={styles.txtEdit}>Editar</Text>
+               </TouchableOpacity>
+             </View>
+             <View>
+               <TouchableOpacity style={styles.btnEditPassword} >
+                <Text style={styles.txtEdit}>Editar</Text>
+               </TouchableOpacity>
+             </View>
+            </View>
+      </View>
+        {/* <View style={styles.header}>
           <View>
           <Flecha style={styles.arrow}/>
           </View>
@@ -50,7 +97,7 @@ const Porfile = () => {
                </TouchableOpacity>
              </View>
             </View>
-        </View>
+        </View> */}
     </View>
   );
 };
@@ -60,10 +107,10 @@ const styles = {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',   
-        marginTop:650,
+        marginTop:10,
     },
     header: {
-        top: -336,
+        top: -36,
         backgroundColor: '#1F379A',
         width: '100%',
         height: 66,
@@ -84,8 +131,8 @@ const styles = {
     },
     card: {
         width: '92%',
-        height: 140,
-        top: -330,
+        height: 120,
+        top: -20,
         backgroundColor: '#fff',
         borderRadius: 10,
         padding: 20,
@@ -120,8 +167,8 @@ const styles = {
       cardEdit: {
         flexDirection: 'row',
         width: '92%',
-        height: 570,
-        top: -330,
+        height: 470,
+        top: -10,
         backgroundColor: '#fff',
         borderRadius: 10,
         padding: 20,
