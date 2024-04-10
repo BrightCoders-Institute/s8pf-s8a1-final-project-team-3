@@ -1,21 +1,30 @@
 import React from 'react'
 import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/homeScreen';
-import ShoppingScreen from '../screens/shoppingScreen';
+import Porfiles from '../screens/Porfile';
 import { Platform, Text, View } from 'react-native';
 import Home from '../assets/icons/Home.svg';
-import Porfile from '../assets/icons/Porfile.svg';
 import Heart from '../assets/icons/Heart.svg';
+import Porfile from '../assets/icons/Porfile.svg';
 import SearchScreen from '../screens/searchScreen';
+import GamingScreen from '../screens/GamingScreen';
+import SchoolScreen from '../screens/SchoolScreen';
+import WorkoutScreen from '../screens/WorkoutScreen';
+import HomeScreenProducts from '../screens/HomeScreenProducts';
+import ProductScreen from '../screens/ProductScreen';
+
+import { createStackNavigator } from '@react-navigation/stack';
+import KitchenScreen from '../screens/kitchenScreen';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 const TabBottomP = () => {
   return (
     <Tab.Navigator screenOptions={bottomScreenOptions}>
       <Tab.Screen
         name="Home"
-        component={HomeScreen} 
+        component={StackCategory} 
       options={{ 
         tabBarIcon: ({ focused }) => {
           return (
@@ -53,7 +62,7 @@ const TabBottomP = () => {
 
       <Tab.Screen
         name="Porfile"
-        component={ShoppingScreen}
+        component={Porfiles}
         options={{
           tabBarIcon: ({ focused }) => {
             return (
@@ -71,10 +80,27 @@ const TabBottomP = () => {
         />
         
     </Tab.Navigator>
+
   )
 }
 
 export default TabBottomP
+
+
+export const StackCategory = () => {
+  
+  return(
+  <Stack.Navigator>
+    <Stack.Screen options={{headerShown: false}} name='Homee' component={HomeScreen}/>
+    <Stack.Screen name='KitchenScreen' component={KitchenScreen}/>
+    <Stack.Screen name='GamingScreen' component={GamingScreen}/>
+    <Stack.Screen name='HomeScreenProducts' component={HomeScreenProducts}/>
+    <Stack.Screen name='SchoolScreen' component={SchoolScreen}/>
+    <Stack.Screen name='WorkoutScreen' component={WorkoutScreen}/>
+    <Stack.Screen options={{headerTitle: ''}} name='ProductScreen' component={ProductScreen}/>
+  </Stack.Navigator>
+  )
+}
 
 {/* <TabButtonUser.Screen
 name="Home"
