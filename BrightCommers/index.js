@@ -5,6 +5,6 @@
 import {AppRegistry} from 'react-native';
 import {name as appName} from './app.json';
 
-import App from '../BrightCommers/src/screens/CardPayment';
+import App from './App';
 
 AppRegistry.registerComponent(appName, () => App);
