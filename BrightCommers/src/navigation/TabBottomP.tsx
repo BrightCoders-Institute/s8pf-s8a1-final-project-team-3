@@ -1,12 +1,12 @@
 import React from 'react'
 import { BottomTabNavigationOptions, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/homeScreen';
+import HomeScreen from '../screens/HomeScreen';
 import Porfiles from '../screens/Porfile';
 import { Platform, Text, View } from 'react-native';
 import Home from '../assets/icons/Home.svg';
 import Heart from '../assets/icons/Heart.svg';
 import Porfile from '../assets/icons/Porfile.svg';
-import SearchScreen from '../screens/searchScreen';
+import SearchScreen from '../screens/SearchScreen';
 import GamingScreen from '../screens/GamingScreen';
 import SchoolScreen from '../screens/SchoolScreen';
 import WorkoutScreen from '../screens/WorkoutScreen';
