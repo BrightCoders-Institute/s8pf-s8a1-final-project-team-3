@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   StatusBar,
@@ -13,8 +13,22 @@ import {
 import {properties} from '../../Properties.json';
 import Greeting from '../components/greeting';
 import SearchBar from '../components/searchBar';
+import firebase from '@react-native-firebase/firestore';
 
-const WorkoutScreen = () => {
+const SearchScreen = () => {
+  const [products, setProducts] = useState<any>();
+
+  useEffect(() => {
+    firebase().collection('workout').get().then((query) => {
+      const docs = query.docs;
+      const data = docs.map((doc) => {
+        return doc.data();
+      })
+
+      setProducts(data);
+    })
+  }, [])
+
   return (
     <>
       <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -26,17 +40,17 @@ const WorkoutScreen = () => {
         </View>
         <FlatList 
         contentContainerStyle={styles.list}
-        data={properties} 
+        data={products} 
         renderItem={({item}) => (
           <View style={styles.itemContainer}>
               <ImageBackground
-                  source={{uri: item.photoWorkout}}
+                  source={{uri: item.img}}
                   resizeMode='contain'
                   style={styles.itemPhoto}
                   >
               </ImageBackground>
               <View style={styles.textConatiner}>
-                  <Text style={styles.textConatiner}>{item.descriptionWorkout}</Text>
+                  <Text style={styles.textConatiner}>{item.name}</Text>
                   <View style={styles.seconContainer}>
                     <Text style={styles.price}>{item.price}</Text>
                     <Text style={styles.shipping}>{item.shipping}</Text>
@@ -137,4 +151,4 @@ seconContainer: {
 },
 });
 
-export default WorkoutScreen;
+export default SearchScreen;
