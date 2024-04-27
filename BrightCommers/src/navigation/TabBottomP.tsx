@@ -12,6 +12,7 @@ import SchoolScreen from '../screens/SchoolScreen';
 import WorkoutScreen from '../screens/WorkoutScreen';
 import HomeScreenProducts from '../screens/HomeScreenProducts';
 import ProductScreen from '../screens/ProductScreen';
+import ShoppingScreen from '../screens/shoppingScreen';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import KitchenScreen from '../screens/kitchenScreen';
@@ -97,6 +98,7 @@ export const StackCategory = () => {
     <Stack.Screen name='HomeScreenProducts' component={HomeScreenProducts}/>
     <Stack.Screen name='SchoolScreen' component={SchoolScreen}/>
     <Stack.Screen name='WorkoutScreen' component={WorkoutScreen}/>
+    <Stack.Screen name='ShoppingScreen' component={ShoppingScreen}/>
     <Stack.Screen options={{headerTitle: ''}} name='ProductScreen' component={ProductScreen}/>
   </Stack.Navigator>
   )
