@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Gear from '../assets/icons/gear.svg';
 import Bell from '../assets/icons/bell.svg';
 import Cart from '../assets/icons/shopping-cart.svg';
 
 const Greeting = () => {
+    const navigation = useNavigation(); // Mueve esta línea dentro del componente funcional
+
+    const navigateTo = (screenName) => {
+        navigation.navigate(screenName);
+    }
+
     return (
         <View style={styles.container}>
             <Image source={require('../assets/img/pfp.png')} style={styles.avatar}/>
@@ -19,7 +26,7 @@ const Greeting = () => {
                 <TouchableOpacity>
                     <Bell style={styles.icon}/>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity  onPress={() => navigateTo('ShoppingScreen')}>
                     <Cart style={styles.icon}/>
                 </TouchableOpacity>
             </View>
@@ -67,4 +74,3 @@ const styles = StyleSheet.create({
 });
 
 export default Greeting;
-

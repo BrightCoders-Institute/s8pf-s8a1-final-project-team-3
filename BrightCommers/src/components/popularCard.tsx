@@ -1,64 +1,62 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {View, Text, Image, StyleSheet, ScrollView, StatusBar, FlatList, ImageBackground} from 'react-native';
+import { TouchableOpacity, View, Text, Image, StyleSheet, FlatList } from 'react-native';
 import firebase from '@react-native-firebase/firestore';
-  
 
-
-const ProductCard = ({imageSource, title, price, onPress}) => {
+const ProductCard = ({ imageSource, title, price, item, onPress }) => {
   return (
-    <TouchableOpacity onPress={onPress} >
-    <View style={styles.card}>
-      <View style={styles.contentContainer}>
-        <Image source={imageSource} style={styles.image} />
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.price}>{price}</Text>
+    <TouchableOpacity onPress={() => onPress(item)}>
+      <View style={styles.card}>
+        <View style={styles.contentContainer}>
+          <Image source={imageSource} style={styles.image} />
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.price}>{price}</Text>
+        </View>
       </View>
-    </View>
-  </TouchableOpacity>
-  )
-}
-
+    </TouchableOpacity>
+  );
+};
 
 const ProductsList = () => {
+  const [products, setProducts] = useState<any>();
 
-  const [productsKitchen, setProductsKitchen] = useState<any>();
   useEffect(() => {
-    firebase().collection('popular').get().then((query) => {
-      const docs = query.docs;
-      const data = docs.map((doc) => {
-        return doc.data();
-      })
+    firebase()
+      .collection('popular')
+      .get()
+      .then((query) => {
+        const docs = query.docs;
+        const data = docs.map((doc) => {
+          return { ...doc.data(), id: doc.id }; // Agrega un campo 'id' al objeto de datos
+        });
 
-      setProductsKitchen(data);
-    })
-  }, [])
+        setProducts(data);
+      });
+  }, []);
 
+  const navigation = useNavigation();
 
-
-  const navigation = useNavigation(); // Usa useNavigation para obtener el objeto de navegación
-
-  const navigateTo = (screenName) => {
-    navigation.navigate(screenName);
-  }
+  const navigateTo = (screenName, item) => {
+    navigation.navigate(screenName, { item }); // Pasa el objeto item como parámetro
+  };
 
   return (
-  <FlatList
-    horizontal={true}
-    showsHorizontalScrollIndicator={false}
-    data= {productsKitchen}
-    renderItem={({ item }) => (
-      <ProductCard
-        onPress={() => navigateTo('ProductScreen')}
-        imageSource={{uri: item.img}}
-        title={item.name}
-        price={item.price}
-      />
-    )}
-  />
-  )
-}
+    <FlatList
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      data={products}
+      renderItem={({ item }) => (
+        <ProductCard
+          onPress={() => navigateTo('ProductScreen', item)} // Pasa el objeto item al onPress
+          imageSource={{ uri: item.img }}
+          title={item.name}
+          price={item.price}
+          item={item} // Pasa el objeto item como prop al ProductCard
+        />
+      )}
+    />
+  );
+};
 
 const styles = StyleSheet.create({
   card: {

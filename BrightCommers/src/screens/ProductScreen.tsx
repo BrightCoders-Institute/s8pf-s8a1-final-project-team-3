@@ -6,51 +6,53 @@ import Stock from '../assets/icons/stock.svg';
 import Star from '../assets/icons/star.svg';
 import Starfull from '../assets/icons/starfull.svg';
 
-const ProductScreen = () => (
-  <View style={styles.container}>
-    <View style={styles.header}>
-      <LeftArrow />
-      <TouchableOpacity style={styles.addToCart}>
-        <Text style={styles.addToCartText}>Add to cart</Text>
-      </TouchableOpacity>
-    </View>
-    <Text style={styles.title}>Wireless Dualsense Controller Playstation 5 Cosmic White.</Text>
-    <View style={[styles.row, {marginTop: 12}]}>
-        <Starfull style={{ marginRight:  6}}/>
-        <Starfull style={{ marginRight:  6}}/>
-        <Starfull style={{ marginRight:  6}}/>
-        <Starfull style={{ marginRight:  6}}/>
-        <Star style={{ marginRight:  6}}/>
-        <Text style={{ fontSize: 16, color: '#7E7E7E' }}>(4.0)</Text>
-    </View>
-    <Image source={require('../assets/img/controller.png')} style={styles.image} />
+const ProductScreen = ({ route }) => {
+  const { item } = route.params;
 
-    <View style={styles.row}>
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.addToCart}>
+          <Text style={styles.addToCartText}>Add to cart</Text>
+        </TouchableOpacity>
+      </View>
+      <Text style={styles.title}>{item.name}</Text>
+      <View style={styles.row}>
+        {[...Array(5)].map((_, index) => (
+          <View key={index} style={{ marginRight: 6 }}>
+            {index < Math.floor(item.rating) ? <Starfull /> : <Star />}
+          </View>
+        ))}
+        <Text style={{ fontSize: 16, color: '#7E7E7E' }}>({item.rating})</Text>
+      </View>
+      <Image source={{ uri: item.img }} style={styles.image} />
+
+      <View style={styles.row}>
         <View style={[styles.iconContainer, { backgroundColor: '#3AC430', marginRight: 8 }]}>
-            <Price />
+          <Price />
         </View>
         <View style={styles.textColumn}>
-            <Text style={styles.textLabel}>Price</Text>
-            <Text style={styles.priceText}>$60.00</Text>
+          <Text style={styles.textLabel}>Price</Text>
+          <Text style={styles.priceText}>{item.price}</Text>
         </View>
         <View style={{ flex: 1 }} />
         <View style={[styles.iconContainer, { backgroundColor: '#FA9A2E', marginLeft: 8 }]}>
-            <Stock />
+          <Stock />
         </View>
         <View style={styles.textColumn}>
-            <Text style={styles.textLabel}>In Stock</Text>
-            <Text style={styles.priceText}>6</Text>
+          <Text style={styles.textLabel}>In Stock</Text>
+          <Text style={styles.priceText}>{item.stock}</Text>
         </View>
+      </View>
+
+      <Text style={styles.description}>{item.description}</Text>
+      <View style={{ flex: 1 }} />
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Buy now</Text>
+      </TouchableOpacity>
     </View>
-
-
-    <Text style={styles.description}>Siente la respuesta física a tus acciones en el juego con los accionadores dobles que reemplazan a los tradicionales motores de vibración. En tus manos, estas vibraciones dinámicas pueden simular la sensación de todo, desde los entornos hasta el retroceso de ...</Text>
-    <View style={{ flex: 1 }} />
-    <TouchableOpacity style={styles.button}>
-      <Text style={styles.buttonText}>Buy now</Text>
-    </TouchableOpacity>
-  </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

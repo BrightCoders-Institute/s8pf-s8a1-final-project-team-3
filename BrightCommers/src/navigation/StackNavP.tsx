@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import TabBottomP from './TabBottomP';
 import Registrer from '../screens/Registrer';
 import Login from '../screens/Login';
+import ResetPasswordScreen from '../screens/ResetPasswordScreen';
 import KitchenScreen from '../screens/kitchenScreen';
 import GamingScreen from '../screens/GamingScreen';
 import HomeScreenProducts from '../screens/HomeScreenProducts';
@@ -28,6 +29,7 @@ const StackNavP = () => {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={Login} /> 
       <Stack.Screen name="Register" component={Registrer} />
+      <Stack.Screen name="Reset" options={{headerShown: true}} component={ResetPasswordScreen} />
       <Stack.Screen name="TabHome" component={TabBottomP} />
       {/* <Stack.Screen name="KitchenScreen" component={KitchenScreen} /> */}
 

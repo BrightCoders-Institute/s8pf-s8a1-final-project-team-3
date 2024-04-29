@@ -25,6 +25,10 @@ const RegisterScreenMove = () => {
   navigation.replace('Register')
 }
 
+const ResetScreen = () => {
+  navigation.navigate('Reset')
+}
+
   return (
       <View style={styles.container}>
         <Logo style={styles.logo} />
@@ -46,8 +50,8 @@ const RegisterScreenMove = () => {
             secureTextEntry
             style={styles.input}
           />
-          <TouchableOpacity style={styles.textForgot}>
-            <Text style={styles.textFor}> Forgot Password? </Text>
+          <TouchableOpacity onPress={ResetScreen} style={styles.textForgot}>
+            <Text  style={styles.textFor}> Forgot Password? </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={loginwithemail}>
             <Text style={styles.buttonText}>Login</Text>

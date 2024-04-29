@@ -9,6 +9,7 @@ import {
   Image,
   ImageBackground
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import {properties} from '../../Properties.json';
 import Greeting from '../components/greeting';
@@ -19,15 +20,24 @@ const SearchScreen = () => {
   const [products, setProducts] = useState<any>();
 
   useEffect(() => {
-    firebase().collection('home').get().then((query) => {
-      const docs = query.docs;
-      const data = docs.map((doc) => {
-        return doc.data();
-      })
+    firebase()
+      .collection('home')
+      .get()
+      .then((query) => {
+        const docs = query.docs;
+        const data = docs.map((doc) => {
+          return { ...doc.data(), id: doc.id }; // Agrega un campo 'id' al objeto de datos
+        });
 
-      setProducts(data);
-    })
-  }, [])
+        setProducts(data);
+      });
+  }, []);
+
+  const navigation = useNavigation();
+
+  const navigateTo = (screenName, item) => {
+    navigation.navigate(screenName, { item }); // Pasa el objeto item como parámetro
+  };
 
   return (
     <>
@@ -38,10 +48,13 @@ const SearchScreen = () => {
         <View style={styles.row}>
           <Text style={styles.title}>Results</Text>
         </View>
+        
+       
         <FlatList 
         contentContainerStyle={styles.list}
         data={products} 
         renderItem={({item}) => (
+          <TouchableOpacity onPress={() => navigateTo('ProductScreen', item)}>
           <View style={styles.itemContainer}>
               <ImageBackground
                   source={{uri: item.img}}
@@ -57,7 +70,9 @@ const SearchScreen = () => {
                   </View>
               </View>
           </View>
+          </TouchableOpacity>
          )}/>
+
       </View>
     </>
   );
