@@ -1,51 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {View, Text, Image, StyleSheet, ScrollView} from 'react-native';
+import { TouchableOpacity, View, Text, Image, StyleSheet, FlatList } from 'react-native';
+import firebase from '@react-native-firebase/firestore';
 
-  
-
-
-const ProductCard = ({imageSource, title, price, onPress}) => {
+const ProductCard = ({ imageSource, title, price, item, onPress }) => {
   return (
-    <TouchableOpacity onPress={onPress} >
-    <View style={styles.card}>
-      <View style={styles.contentContainer}>
-        <Image source={imageSource} style={styles.image} />
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.price}>{price}</Text>
+    <TouchableOpacity onPress={() => onPress(item)}>
+      <View style={styles.card}>
+        <View style={styles.contentContainer}>
+          <Image source={imageSource} style={styles.image} />
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.price}>{price}</Text>
+        </View>
       </View>
-    </View>
-  </TouchableOpacity>
-  )
-}
-
+    </TouchableOpacity>
+  );
+};
 
 const ProductsList = () => {
+  const [products, setProducts] = useState<any>();
 
-  const navigation = useNavigation(); // Usa useNavigation para obtener el objeto de navegación
+  useEffect(() => {
+    firebase()
+      .collection('popular')
+      .get()
+      .then((query) => {
+        const docs = query.docs;
+        const data = docs.map((doc) => {
+          return { ...doc.data(), id: doc.id }; // Agrega un campo 'id' al objeto de datos
+        });
 
-  const navigateTo = (screenName) => {
-    navigation.navigate(screenName);
-  }
+        setProducts(data);
+      });
+  }, []);
+
+  const navigation = useNavigation();
+
+  const navigateTo = (screenName, item) => {
+    navigation.navigate(screenName, { item }); // Pasa el objeto item como parámetro
+  };
 
   return (
-    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-    <ProductCard
-      onPress={() => navigateTo('ProductScreen')}
-      imageSource={require('../assets/img/controller.png')}
-      title="Wireless Dualsense control Playstation 5 White"
-      price="$60.00"
+    <FlatList
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      data={products}
+      renderItem={({ item }) => (
+        <ProductCard
+          onPress={() => navigateTo('ProductScreen', item)} // Pasa el objeto item al onPress
+          imageSource={{ uri: item.img }}
+          title={item.name}
+          price={item.price}
+          item={item} // Pasa el objeto item como prop al ProductCard
+        />
+      )}
     />
-    <ProductCard
-      onPress={() => navigateTo('ProductScreen')}
-      imageSource={require('../assets/img/controller.png')}
-      title="Wireless Dualsense control Playstation 5 White"
-      price="$60.00"
-    />
-  </ScrollView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   card: {
@@ -55,8 +66,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: '#EFEFEF',
     borderWidth: 2,
-    width: 247,
-    height: 283,
+    width: 250,
+    height: 290,
     marginHorizontal: 16,
     marginLeft: 16,
     marginTop: 18,
