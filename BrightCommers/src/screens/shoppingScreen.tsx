@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StatusBar, Text, TouchableOpacity, StyleSheet, ImageBackground, Platform } from "react-native";
+import { View, StatusBar, Text, TouchableOpacity, StyleSheet, ImageBackground, Platform, ScrollView } from "react-native";
 import Greeting from "../components/greeting";
 import SearchBar from "../components/searchBar";
 import Safearea from '../layout/Safearea';
@@ -8,6 +8,7 @@ import Safearea from '../layout/Safearea';
 const ShoppingScreen = () => {
 
     return (
+        <ScrollView>
         <View>
             <StatusBar backgroundColor="white" barStyle="dark-content" />
             <Greeting />
@@ -79,9 +80,8 @@ const ShoppingScreen = () => {
                     </View>
                 </View>
             </View>
-
-
         </View>
+        </ScrollView>
     );
 };
 
