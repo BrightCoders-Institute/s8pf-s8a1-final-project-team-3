@@ -23,35 +23,31 @@ const Registrer = () => {
       <View style={styles.container}>
         <Logo style={styles.logo} />
         <View style={styles.form}>
-          <Text style={styles.formText}>Name: </Text>
+          <Text style={styles.formTextE}>Name: </Text>
           <TextInput
-            placeholder="name"
             keyboardType="email-address"
             autoCapitalize="none"
             style={styles.input}
           />
           <Text style={styles.formText}>Last name: </Text>
           <TextInput
-            placeholder="Last name "
             style={styles.input}
           />
           <Text style={styles.formText}>Email: </Text>
           <TextInput
-            placeholder="Email"
             value={email}
             onChangeText={text => setEmail(text)}
             style={styles.input}
           />
           <Text style={styles.formText}>Password: </Text>
           <TextInput
-            placeholder="Password"
             value={password}
             onChangeText={text => setPassword(text)}
             secureTextEntry
             style={styles.input}
           />
           <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Text style={styles.buttonText}>Registrer</Text>
+            <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -61,61 +57,55 @@ const Registrer = () => {
 
 const styles = {
   container: {
+    backgroundColor: 'white',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    marginTop: 20,
+    paddingHorizontal: 16,
   },
   logo: {
-    top: -100,
+    width: 186,
+    height: 186,
+    marginTop: -102,
   },
   form: {
     width: '100%',
     top: -215,
   },
   input: {
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 10,
-    padding: 7,
-    marginBottom: 10,
+    borderWidth: 2,
+    borderColor: '#C4CDD6',
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    marginBottom: 18,
     width: '100%',
   },
   formText: {
-    marginBottom: 6,
-    marginTop: 15,
-    fontSize: 16,
-    marginRight: 150,
+    marginBottom: 12,
+    fontSize: 18,
     fontWeight: 'bold',
+    color: '#7E7E7E'
   },
-  textForgot: {
-    marginBottom: 22,
-    marginLeft: 230,
-    fontSize: 16,
-    textDecorationLine: 'underline',
+  formTextE: {
+    marginBottom: 12,
+    marginTop: 72,
+    fontSize: 18,
     fontWeight: 'bold',
+    color: '#7E7E7E'
   },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: '#0139A6',
     paddingVertical: 8,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    marginVertical: 45,
+    borderRadius: 8,
+    marginTop: 48,
+    marginBottom: 24,
   },
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
     fontSize: 18,
     textAlign: 'center',
-  },
-
-  textRegistrer: {
-    marginLeft: 150,
-    fontSize: 16,
-    marginBottom: 15,
-    textDecorationLine: 'underline',
-    fontWeight: 'bold',
   },
 };
 

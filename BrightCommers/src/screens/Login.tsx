@@ -80,7 +80,7 @@ const styles = {
   },
   form: {
     width: '100%',
-    top: -185,
+    top: -165,
   },
   input: {
     borderWidth: 2,
