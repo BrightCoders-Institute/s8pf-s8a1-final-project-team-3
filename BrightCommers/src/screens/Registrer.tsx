@@ -2,21 +2,45 @@ import React, {useState} from 'react';
 import {View, TextInput, Alert, Text, ScrollView, TouchableOpacity} from 'react-native';
 import Logo from '../assets/img/origlogo.svg';
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore'; 
 
-const Registrer = () => {
+const Registrer = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setname] = useState('')
+  const [lastname, setlastname] = useState('')
 
   const handleLogin = () => {
-    try {
-        auth().createUserWithEmailAndPassword(email, password).then(() => {
-            Alert.alert("User Created with those credentials please login")
-        })
-    } catch (error) {
-        console.log(error)
-        Alert.alert("User not created, try again later")
-    }
+    auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => { // userCredential contiene información del usuario recién creado
+                const user = userCredential.user; // Obtén el usuario
+                saveUserData(user); // Guarda los datos del usuario en Firestore
+                Alert.alert("User Created with those credentials please login");
+                navigation.replace('login');
+            })
+            .catch((error) => {
+                console.log(error);
+                // Manejar el error adecuadamente, por ejemplo, mostrar una alerta al usuario
+                Alert.alert("Error", error.message);
+            });
 }
+
+const saveUserData = (user: any) => {
+  firestore()
+      .collection('users') // Selecciona la colección 'users'
+      .doc(user.uid) // Crea un documento con el ID del usuario
+      .set({ // Guarda los datos del usuario
+          email: user.email,
+          uid: user.uid,
+          password: password,
+          name: name,
+          lastname: lastname
+      })
+      .then(() => {
+          console.log('User added!');
+      });
+};
 
   return (
     <ScrollView>
@@ -28,11 +52,15 @@ const Registrer = () => {
             placeholder="name"
             keyboardType="email-address"
             autoCapitalize="none"
+            value={name}
+            onChangeText={text => setname(text)}
             style={styles.input}
           />
           <Text style={styles.formText}>Last name: </Text>
           <TextInput
             placeholder="Last name "
+            value={lastname}
+            onChangeText={text => setlastname(text)}
             style={styles.input}
           />
           <Text style={styles.formText}>Email: </Text>

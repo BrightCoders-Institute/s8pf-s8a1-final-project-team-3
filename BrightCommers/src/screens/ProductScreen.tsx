@@ -1,5 +1,16 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {
+  View,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  FlatList,
+  Image,
+  ImageBackground
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import firebase from '@react-native-firebase/firestore';
 import LeftArrow from '../assets/icons/left.svg';
 import Price from '../assets/icons/price.svg';
 import Stock from '../assets/icons/stock.svg';
@@ -8,11 +19,16 @@ import Starfull from '../assets/icons/starfull.svg';
 
 const ProductScreen = ({ route }) => {
   const { item } = route.params;
+  const navigation = useNavigation();
+
+  const addToCart = () => { 
+    navigation.navigate('ShoppingScreen', { item });
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.addToCart}>
+        <TouchableOpacity style={styles.addToCart} onPress={addToCart}>
           <Text style={styles.addToCartText}>Add to cart</Text>
         </TouchableOpacity>
       </View>

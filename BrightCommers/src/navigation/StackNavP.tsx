@@ -1,58 +1,58 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack';
 
-import TabBottomP from './TabBottomP';
-import Registrer from '../screens/Registrer';
-import Login from '../screens/Login';
+import { createStackNavigator } from '@react-navigation/stack';
 import ResetPasswordScreen from '../screens/ResetPasswordScreen';
-import KitchenScreen from '../screens/kitchenScreen';
-import GamingScreen from '../screens/GamingScreen';
-import HomeScreenProducts from '../screens/HomeScreenProducts';
-import SchoolScreen from '../screens/SchoolScreen';
-import WorkoutScreen from '../screens/WorkoutScreen';
-//import HomeScreen from '../screens/HomeScreen';
-import AddressandinfoScreen from '../screens/addressandinfoScreen';
-import ProductScreen from '../screens/ProductScreen';
-import ShoppingScreen from '../screens/shoppingScreen';
-import EditName from '../screens/EditName';
-import EditEmail from '../screens/EditEmail';
-import EditPassword from '../screens/EditPassword';
-import Home from '../screens/home';
-import SearchBar from '../components/searchBar';
-import Porfile from '../screens/Porfile';
+import { useEffect, useState } from 'react';
+import auth from '@react-native-firebase/auth';
+import Login from '../screens/Login';
+import Registrer from '../screens/Registrer';
+import TabBottomP from './TabBottomP';
 
 const Stack = createStackNavigator();
 
 const StackNavP = () => {
+
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState(null as any);
+  const [isNewUser, setIsNewUser] = useState(false);
+
+  useEffect(() => {
+      const subscriber = auth().onAuthStateChanged((user) => {
+          setUser(user);
+          if (initializing) setInitializing(false);
+          // Check if the user is newly registered
+          if (user && user.metadata.creationTime === user.metadata.lastSignInTime) {
+              setIsNewUser(true);
+          }
+      });
+
+      // Cleanup subscription
+      return subscriber;
+  }, [initializing]);
+
+  if (initializing) {
+      // Firebase is initializing, show loading or splash screen
+      return null;
+  }
+  
+
   return (
-
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Login" component={Login} /> 
-      <Stack.Screen name="Register" component={Registrer} />
-      <Stack.Screen name="Reset" options={{headerShown: true}} component={ResetPasswordScreen} />
-      <Stack.Screen name="TabHome" component={TabBottomP} />
-      {/* <Stack.Screen name="KitchenScreen" component={KitchenScreen} /> */}
+            {!user || isNewUser ? ( // Check if there is no user or if the user is newly registered
+                <>
+                    <Stack.Screen name="login">
+                        {(props) => <Login {...props} />}
+                    </Stack.Screen>
+                    <Stack.Screen name="Register" component={Registrer} />
+                    <Stack.Screen options={{headerShown: true}} name="Reset" component={ResetPasswordScreen} />
+                </>
+            ) : (
+                <Stack.Screen name="TabBottomP" 
+                component={TabBottomP}
+                initialParams={{user: user}}
+                />
+            )}
+        </Stack.Navigator>
+  );
+};
 
-
-
-
-{/* 
-      <Stack.Screen name="AddressandinfoScreen" component={AddressandinfoScreen} />
-      <Stack.Screen name="ProductScreen" component={ProductScreen} />
-      <Stack.Screen name="ShoppingScreen" component={ShoppingScreen} />
-      <Stack.Screen name="EditName" component={EditName} />
-      <Stack.Screen name="EditEmail" component={EditEmail} />
-      <Stack.Screen name="EditPassword" component={EditPassword} />
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="SearchBar" component={SearchBar} />
-      <Stack.Screen name="KitchenScreen" component={KitchenScreen} />
-      <Stack.Screen name="GamingScreen" component={GamingScreen} />
-      <Stack.Screen name="HomeScreenProducts" component={HomeScreenProducts} />
-      <Stack.Screen name="SchoolScreen" component={SchoolScreen} />
-      <Stack.Screen name="WorkoutScreen" component={WorkoutScreen} /> */}
-      
-    </Stack.Navigator>
-  )
-}
-
-export default StackNavP
+export default StackNavP;

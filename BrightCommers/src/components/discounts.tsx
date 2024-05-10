@@ -1,10 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FlatList, Image, StyleSheet, View } from "react-native";
 
+// Definición de ITEM_WIDTH como constante global
+const ITEM_WIDTH = 336; 
+
 const Discounts = () => {
     const flatlistRef = useRef();
-    const ITEM_WIDTH = 336; 
     const [activeIndex, setActiveIndex] = useState(0);
+
+    // Data for carousel
+    const carouselData = [
+        {
+            id: "01",
+            image: require("../assets/img/promo1.png"),
+        },
+        {
+            id: "02",
+            image: require("../assets/img/promo2.png"),
+        },
+        {
+            id: "03",
+            image: require("../assets/img/promo3.png"),
+        },
+    ];
 
     // Handle Scroll
     const handleScroll = (event) => {
@@ -25,23 +43,7 @@ const Discounts = () => {
         }, 4000);
 
         return () => clearInterval(interval);
-    }, [activeIndex]);
-
-    // Data for carousel
-    const carouselData = [
-        {
-            id: "01",
-            image: require("../assets/img/promo1.png"),
-        },
-        {
-            id: "02",
-            image: require("../assets/img/promo2.png"),
-        },
-        {
-            id: "03",
-            image: require("../assets/img/promo3.png"),
-        },
-    ];
+    }, [activeIndex, carouselData.length]);
 
     //  Display Images // UI
     const renderItem = ({ item, index }) => {
@@ -105,9 +107,12 @@ const styles = StyleSheet.create({
     container: {
         marginHorizontal: 25,
         marginRight: 4,
+        width: ITEM_WIDTH,
+        alignItems: 'center',
     },
     image: {
-        height: 190,
+        flex: 1,
+        height: undefined,
         aspectRatio: 336 / 172,
         resizeMode: 'contain',
     },

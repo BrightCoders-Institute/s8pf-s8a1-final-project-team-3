@@ -1,8 +1,41 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import Logo from '../assets/icons/user.svg';
 import Flecha from '../assets/icons/arrowleft.svg';
+import { useNavigation } from '@react-navigation/native';
+import firebase from '@react-native-firebase/firestore';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+
 const Porfile = () => {
+
+  const navigation = useNavigation();
+  const [userData, setUserData] = useState ('');
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const currentUser = auth().currentUser;
+        if (currentUser) {
+          const userId = currentUser.uid;
+          const userDoc = await firestore().collection('users').doc(userId).get();
+          if (userDoc.exists) {
+            setUserData(userDoc.data());
+          } else {
+            console.log('No se encontraron datos para este usuario');
+          }
+        } else {
+          console.log('No hay usuario autenticado');
+        }
+      } catch (error) {
+        console.error('Error al obtener los datos del usuario:', error);
+      }
+    };
+  
+    fetchUserData();
+  }, []);
+ 
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -16,18 +49,19 @@ const Porfile = () => {
            <Logo style={styles.logo}/> 
       </View>
           <Text style={styles.user}>Nombre de usuario</Text>
-          <Text style={styles.email}>ExampleCorreo@gmail.com</Text>
+          <Text style={styles.email}>{userData.name + ' ' + userData.lastname}</Text>
       </View>
+
       <View style={styles.cardEdit}>
 
       <View>
               <View>
                 <Text style={styles.userEdit}>Nombre de usuario:</Text>
-                <Text style={styles.userExample}>Nombre de usuario example</Text>
+                <Text style={styles.userExample}>{userData.name + ' ' + userData.lastname}</Text>
              </View>
               <View>
                 <Text style={styles.userEdit}>Correo:</Text>
-                <Text style={styles.userExample}>ExampleCorreo@gmail.com</Text>
+                <Text style={styles.userExample}>{userData.email}</Text>
              </View>
                <View>
                 <Text style={styles.userEdit}>Contrasena</Text>
@@ -36,17 +70,17 @@ const Porfile = () => {
            </View>
              <View>
               <View>
-               <TouchableOpacity style={styles.btnEditUser}>
+               <TouchableOpacity style={styles.btnEditUser} onPress={() => navigation.navigate('ResetNamePerfil')}>
                 <Text style={styles.txtEdit}>Editar</Text>
                </TouchableOpacity>
              </View>
              <View>
-               <TouchableOpacity style={styles.btnEditEmail}>
+               <TouchableOpacity style={styles.btnEditEmail} onPress={() => navigation.navigate('ResetEmailperfil')}>
                 <Text style={styles.txtEdit}>Editar</Text>
                </TouchableOpacity>
              </View>
              <View>
-               <TouchableOpacity style={styles.btnEditPassword} >
+               <TouchableOpacity style={styles.btnEditPassword} onPress={() => navigation.navigate('ResetPassPerfil')}>
                 <Text style={styles.txtEdit}>Editar</Text>
                </TouchableOpacity>
              </View>

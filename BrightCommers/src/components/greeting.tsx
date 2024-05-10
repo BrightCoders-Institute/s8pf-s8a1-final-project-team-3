@@ -4,6 +4,9 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Gear from '../assets/icons/gear.svg';
 import Bell from '../assets/icons/bell.svg';
 import Cart from '../assets/icons/shopping-cart.svg';
+import firebase from '@react-native-firebase/firestore';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 const Greeting = () => {
     const navigation = useNavigation(); // Mueve esta línea dentro del componente funcional
@@ -12,12 +15,37 @@ const Greeting = () => {
         navigation.navigate(screenName);
     }
 
+    const [userData, setUserData] = useState ('');
+
+    useEffect(() => {
+      const fetchUserData = async () => {
+        try {
+          const currentUser = auth().currentUser;
+          if (currentUser) {
+            const userId = currentUser.uid;
+            const userDoc = await firestore().collection('users').doc(userId).get();
+            if (userDoc.exists) {
+              setUserData(userDoc.data());
+            } else {
+              console.log('No se encontraron datos para este usuario');
+            }
+          } else {
+            console.log('No hay usuario autenticado');
+          }
+        } catch (error) {
+          console.error('Error al obtener los datos del usuario:', error);
+        }
+      };
+    
+      fetchUserData();
+    }, []);
+
     return (
         <View style={styles.container}>
             <Image source={require('../assets/img/pfp.png')} style={styles.avatar}/>
             <View style={styles.textContainer}>
                 <Text style={styles.greetingSmall}>Hello</Text> 
-                <Text style={styles.greetingBig}>Carlos!</Text>
+                <Text style={styles.greetingBig}>{userData.name + ' ' + userData.lastname}</Text>
             </View>
             <View style={styles.icons}>
                 <TouchableOpacity>
