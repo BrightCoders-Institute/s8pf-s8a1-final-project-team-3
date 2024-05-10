@@ -43,7 +43,7 @@ const SearchScreen = () => {
     <>
       <View style={{flex: 1, backgroundColor: 'white'}}>
         <StatusBar backgroundColor="white" barStyle="dark-content" />
-        <Greeting />
+
         <SearchBar />
         <View style={styles.row}>
           <Text style={styles.title}>Results</Text>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Inter',
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#000000',
   },
@@ -99,25 +99,25 @@ const styles = StyleSheet.create({
     color: '#0139A6',
   },
   container: {
-    padding: 20,
+    padding: 16,
     backgroundColor: 'white',
 },
 itemContainer: {
-    padding: 10,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
     alignItems: 'center',
-    marginTop: 10,
     flexDirection: 'row',
-    columnGap: 20,
-    backgroundColor: '#ffffff',
-    borderRadius: 5,
-    marginLeft: 20,
-    marginRight: 20,
-    borderWidth: 0.1,
-
+    columnGap: 12,
+    borderRadius: 12,
+    marginLeft: 16,
+    marginRight: 16,
+    marginTop: 18,
+    borderWidth: 2,
+    borderColor: '#EFEFEF',
 },
 itemPhoto: {
-    height: 100,
-    width: 100,
+    height: 92,
+    width: 92,
     justifyContent: 'flex-end',
     alignItems: 'center',
 },
@@ -129,6 +129,8 @@ textConatiner: {
   flex: 1,
   flexWrap: 'wrap',
   maxWidth: '100%',
+  fontSize: 14,
+  color: '#7E7E7E',
 },
 titles: {
     fontSize: 21,
@@ -138,7 +140,7 @@ especifications: {
 },
 price: {
     fontWeight: 'bold',
-    fontSize: 23,
+    fontSize: 16,
     color: '#3ac430',
 }, 
 shipping: {

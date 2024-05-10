@@ -43,7 +43,6 @@ const SearchScreen = () => {
     <>
       <View style={{flex: 1, backgroundColor: 'white'}}>
         <StatusBar backgroundColor="white" barStyle="dark-content" />
-        <Greeting />
         <SearchBar />
         <View style={styles.row}>
           <Text style={styles.title}>Results</Text>
