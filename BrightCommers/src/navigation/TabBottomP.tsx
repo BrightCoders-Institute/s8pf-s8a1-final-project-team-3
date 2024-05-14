@@ -35,6 +35,7 @@ const TabBottomP = ({route}) => {
       <Tab.Screen
         name="Home"
         component={StackCategory}
+        initialParams={{user: user}}
         options={{
           tabBarIcon: ({focused}) => (
             <View
@@ -107,7 +108,8 @@ const TabBottomP = ({route}) => {
 
 export default TabBottomP;
 
-export const StackCategory = () => {
+export const StackCategory = ({route}) => {
+  const {user} = route.params;
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -120,7 +122,7 @@ export const StackCategory = () => {
       <Stack.Screen name="HomeScreenProducts" component={HomeScreenProducts} />
       <Stack.Screen name="SchoolScreen" component={SchoolScreen} />
       <Stack.Screen name="WorkoutScreen" component={WorkoutScreen} />
-      <Stack.Screen name="ShoppingScreen" component={ShoppingScreen} />
+      <Stack.Screen name="ShoppingScreen" component={ShoppingScreen} initialParams={{user : user}}/>
       <Stack.Screen
         options={{headerTitle: ''}}
         name="ProductScreen"

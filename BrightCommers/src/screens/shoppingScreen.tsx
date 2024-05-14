@@ -1,88 +1,87 @@
-import React, { useEffect, useState, useContext} from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  ImageBackground,
-  StyleSheet,
-} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, ScrollView, ImageBackground, StyleSheet, Button, SafeAreaView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import firebase from '@react-native-firebase/firestore';
+import firestore from '@react-native-firebase/firestore';
 
 const ShoppingScreen = () => {
+  const route = useRoute();
+  const [cartItems, setCartItems] = useState([]);
 
+  useEffect(() => {
+    // Al cargar la pantalla, intenta cargar los elementos del carrito desde Firebase Firestore
+    retrieveCartItems();
+  }, []);
 
-  const [Cart, setCart] = useState([])
+  useEffect(() => {
+    // Agregar producto al carrito si se recibe como parámetro
+    if (route.params?.item) {
+      addToCart(route.params.item);
+    }
+  }, [route.params?.item]);
 
-  
+  const retrieveCartItems = async () => {
+    try {
+      const cartItemsSnapshot = await firestore().collection('cart_items').get();
+      const items = cartItemsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setCartItems(items);
+    } catch (error) {
+      console.error('Error retrieving cart items from Firestore:', error);
+    }
+  };
 
+  const addToCart = async (item) => {
+    try {
+      // Agrega el nuevo item al carrito en Firestore
+      await firestore().collection('cart_items').add(item);
+      // Actualiza la lista de elementos del carrito
+      retrieveCartItems();
+    } catch (error) {
+      console.error('Error adding item to cart in Firestore:', error);
+    }
+  };
 
-
-  // const route = useRoute();
-  // const [cart, setCart] = useState([]);
-
-  // useEffect(() => {
-  //   // Al cargar la pantalla, intenta cargar el carrito desde AsyncStorage
-  //   retrieveCart();
-  // }, []);
-
-  // useEffect(() => {
-  //   // Agregar producto al carrito si se recibe como parámetro
-  //   if (route.params?.item) {
-  //     addToCart(route.params.item);
-  //   }
-  // }, [route.params?.item]);
-
-  // const retrieveCart = async () => {
-  //   try {
-  //     const cartFromStorage = await AsyncStorage.getItem('cart');
-  //     if (cartFromStorage !== null) {
-  //       // Si se encuentra el carrito en AsyncStorage, actualiza el estado del carrito
-  //       setCart(JSON.parse(cartFromStorage));
-  //     }
-  //   } catch (error) {
-  //     console.error('Error retrieving cart from AsyncStorage:', error);
-  //   }
-  // };
-
-  // const addToCart = async (item) => {
-  //   try {
-  //     // Agrega el nuevo item al estado del carrito
-  //     const newCart = [...cart, item];
-  //     setCart(newCart);
-  //     // Guarda el carrito actualizado en AsyncStorage
-  //     await AsyncStorage.setItem('cart', JSON.stringify(newCart));
-  //   } catch (error) {
-  //     console.error('Error saving cart to AsyncStorage:', error);
-  //   }
-  // };
+  const handlePurchase = () => {
+    console.log('Comprar button pressed');
+    // Lógica para manejar la compra
+  };
 
   return (
-    <ScrollView>
-      <View>
-        {/* Renderiza la lista de productos del carrito */}
-        {/* {cart.map((item, index) => (
-          <View key={index} style={styles.itemContainer}>
-            <ImageBackground
-              source={{ uri: item.img }}
-              resizeMode='contain'
-              style={styles.itemPhoto}
-            />
-            <View style={styles.textContainer}>
-              <Text style={styles.titles}>{item.name}</Text>
-              <View style={styles.secondContainer}>
-                <Text style={styles.price}>{item.price}</Text>
-                <Text style={styles.shipping}>Free Shipping</Text>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollContainer}>
+        <View>
+          {/* Renderiza la lista de productos del carrito */}
+          {cartItems.map((item, index) => (
+            <View key={index} style={styles.itemContainer}>
+              <ImageBackground
+                source={{ uri: item.img }}
+                resizeMode='contain'
+                style={styles.itemPhoto}
+              />
+              <View style={styles.textContainer}>
+                <Text style={styles.titles}>{item.name}</Text>
+                <View style={styles.secondContainer}>
+                  <Text style={styles.price}>{item.price}</Text>
+                  <Text style={styles.shipping}>Free Shipping</Text>
+                </View>
               </View>
             </View>
-          </View>
-        ))} */}
+          ))}
+        </View>
+      </ScrollView>
+      <View style={styles.buttonContainer}>
+        <Button title="Comprar" onPress={handlePurchase} />
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scrollContainer: {
+    flex: 1,
+  },
   itemContainer: {
     padding: 10,
     alignItems: 'center',
@@ -121,6 +120,11 @@ const styles = StyleSheet.create({
   secondContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  buttonContainer: {
+    padding: 10,
+    borderTopWidth: 1,
+    borderColor: '#ccc',
   },
 });
 
