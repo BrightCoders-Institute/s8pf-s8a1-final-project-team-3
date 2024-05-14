@@ -43,7 +43,6 @@ const SearchScreen = () => {
     <>
       <View style={{flex: 1, backgroundColor: 'white'}}>
         <StatusBar backgroundColor="white" barStyle="dark-content" />
-        <Greeting />
         <SearchBar />
         <View style={styles.row}>
           <Text style={styles.title}>Results</Text>
@@ -103,16 +102,16 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
 },
 itemContainer: {
-    padding: 10,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 18,
     flexDirection: 'row',
     columnGap: 20,
-    backgroundColor: '#ffffff',
-    borderRadius: 5,
-    marginLeft: 20,
-    marginRight: 20,
-    borderWidth: 0.1,
+    borderRadius: 12,
+    marginHorizontal: 16,
+    borderWidth: 2,
+    borderColor: '#EFEFEF',
 
 },
 itemPhoto: {
@@ -120,6 +119,7 @@ itemPhoto: {
     width: 100,
     justifyContent: 'flex-end',
     alignItems: 'center',
+    marginRight: 12,
 },
 detailsContainer: {
     flexDirection: 'row',
@@ -163,6 +163,8 @@ iconContainer:{
 seconContainer: {
   flexDirection: 'row',
   justifyContent: 'space-between',
+  alignItems: 'center',
+  marginTop: 4,
 },
 });
 

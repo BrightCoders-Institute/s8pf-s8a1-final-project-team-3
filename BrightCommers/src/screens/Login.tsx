@@ -33,31 +33,29 @@ const ResetScreen = () => {
       <View style={styles.container}>
         <Logo style={styles.logo} />
         <View style={styles.form}>
-          <Text style={styles.formText}>Email: </Text>
+          <Text style={styles.formTextE}>Email </Text>
           <TextInput
-            placeholder="Email"
             value={email}
             onChangeText={text => setEmail(text)}
             keyboardType="email-address"
             autoCapitalize="none"
             style={styles.input}
           />
-          <Text style={styles.formText}>Password: </Text>
+          <Text style={styles.formText}>Password </Text>
           <TextInput
-            placeholder="Password"
             value={password}
             onChangeText={text => setPassword(text)}
             secureTextEntry
             style={styles.input}
           />
           <TouchableOpacity onPress={ResetScreen} style={styles.textForgot}>
-            <Text  style={styles.textFor}> Forgot Password? </Text>
+            <Text  style={styles.textFor}>Forgot Password?</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={loginwithemail}>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={RegisterScreenMove} style={styles.btnregister}>
-            <Text style={styles.textRegistrer}> Registrer </Text>
+            <Text style={styles.textRegistrer}>Register</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -74,30 +72,37 @@ const styles = {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingTop: 40,
+    paddingHorizontal: 16,
   },
   logo: {
-    top: -100,
+    width: 186,
+    height: 186,
   },
   form: {
     width: '100%',
-    top: -185,
+    top: -165,
   },
   input: {
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 10,
+    borderWidth: 2,
+    borderColor: '#C4CDD6',
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    marginBottom: 18,
     width: '100%',
   },
   formText: {
-    marginBottom: 6,
-    marginTop: 15,
-    fontSize: 16,
-    marginRight: 150,
+    marginBottom: 12,
+    fontSize: 18,
     fontWeight: 'bold',
+    color: '#7E7E7E'
+  },
+  formTextE: {
+    marginBottom: 12,
+    marginTop: 72,
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#7E7E7E'
   },
   textForgot: {
     marginTop: 10,
@@ -105,16 +110,17 @@ const styles = {
     justifyContent: 'flex-end',
   },
   textFor:{
-    fontSize: 16,
+    fontSize: 14,
     textDecorationLine: 'underline',
     fontWeight: 'bold',
+    color: '#8A8B90'
   },
   button: {
-    backgroundColor: 'blue',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    marginVertical: 45,
+    backgroundColor: '#0139A6',
+    paddingVertical: 8,
+    borderRadius: 8,
+    marginTop: 48,
+    marginBottom: 24,
   },
   buttonText: {
     color: 'white',
@@ -124,12 +130,17 @@ const styles = {
   },
 
   textRegistrer: {
-    fontSize: 16,
-    textDecorationLine: 'underline',
+    color: '#0139A6',
     fontWeight: 'bold',
+    fontSize: 18,
+    textAlign: 'center',
   },
   btnregister:{
     flexDirection: 'row',
     justifyContent: 'center',
+    paddingVertical: 8,
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: '#0139A6',
   }
 };
