@@ -6,6 +6,13 @@ This README would normally document whatever steps are necessary to get the appl
 
 ## Table of contents
 
+- Description
+- How to Install and Run the Project
+- How to Use the Project
+- Credits
+- Badges
+
+  
 ## Description
 
 Brightcommers is an e-commerce project designed to offer an online shopping experience, inspired by leading platforms such as Amazon or Mercado Libre. With Brightcommers, users can explore a variety of products, from electronics to sports, with the convenience of accessing everything from the comfort of their home.
@@ -18,7 +25,7 @@ Main features:
 - Add to cart
 - Shopping cart management
 
-## How to Install and Run the Project.
+## How to Install and Run the Project
 
 1. Before you can run Brightcommers in your local environment, you need to ensure that all project dependencies are correctly installed. This can be achieved by running the `npm install` command in your terminal:
 
@@ -63,6 +70,13 @@ npm run ios
 
 ![image](https://github.com/BrightCoders-Institute/s8pf-s8a1-final-project-team-3/assets/60717142/eb59ebcf-fd31-4361-aa98-5b42a5c2b05e)
 
+6. By clicking on a product, it will take the user to another screen that contains the description of the product, price, if it is in stock, and two buttons, one to buy the product and the other to add it to the cart.
+
+![Screenshot 2024-05-16 080137](https://github.com/BrightCoders-Institute/s8pf-s8a1-final-project-team-3/assets/60717142/62c7228a-cd8a-415c-9181-f2f741751373)
+
+7. On the profile screen the user can edit their username, email and password.
+
+![Screenshot 2024-05-15 190513](https://github.com/BrightCoders-Institute/s8pf-s8a1-final-project-team-3/assets/60717142/ccde2ff6-370e-4792-ae4e-0909a56b5e42)
 
 ## Credits
 - Carlos Alberto Calixto Engelberger
