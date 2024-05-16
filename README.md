@@ -1,14 +1,26 @@
 ![BrightCoders Logo](img/logo.png)
 
-# Proyecto final
-
-> [Ver instrucciones antes de iniciar](./instructions/instructions.md)
+# Brightcommers
 
 This README would normally document whatever steps are necessary to get the application up and running.
 
-Things you may want to cover:
+## Table of contents
 
-- Title or Project Name
+## 
+
+
+## Table of contents
+
+## Credits
+
+- 
+
+## Badges
+
+
+
+
+Things you may want to cover:
 - Table of contents
 - Description. A brief description of what the project is about
 - How to Install and Run the Project.
