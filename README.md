@@ -55,6 +55,15 @@ npm run ios
 
 ![image](https://github.com/BrightCoders-Institute/s8pf-s8a1-final-project-team-3/assets/60717142/edcae830-a731-4013-8152-633047edfa90)
 
+4. Al ingresar, el usuario es dirigido a la pantalla de inicio donde puede buscar productos por categoría.
+
+![image](https://github.com/BrightCoders-Institute/s8pf-s8a1-final-project-team-3/assets/60717142/c5bfcf69-c069-4ff8-baf3-76f4468619ef)
+
+5. Additionally, the user can search for the products either in the popular section or discounted products.
+
+![image](https://github.com/BrightCoders-Institute/s8pf-s8a1-final-project-team-3/assets/60717142/eb59ebcf-fd31-4361-aa98-5b42a5c2b05e)
+
+
 ## Credits
 - Carlos Alberto Calixto Engelberger
 - Oscar Rogelio Heredia Ruiz
