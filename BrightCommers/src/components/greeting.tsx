@@ -4,40 +4,45 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Gear from '../assets/icons/gear.svg';
 import Bell from '../assets/icons/bell.svg';
 import Cart from '../assets/icons/shopping-cart.svg';
-import firebase from '@react-native-firebase/firestore';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
 const Greeting = () => {
-    const navigation = useNavigation(); // Mueve esta línea dentro del componente funcional
+    const navigation = useNavigation(); 
 
     const navigateTo = (screenName) => {
         navigation.navigate(screenName);
     }
 
-    const [userData, setUserData] = useState ('');
+    const [userData, setUserData] = useState({ name: '', lastname: '' });
 
     useEffect(() => {
-      const fetchUserData = async () => {
-        try {
-          const currentUser = auth().currentUser;
-          if (currentUser) {
-            const userId = currentUser.uid;
-            const userDoc = await firestore().collection('users').doc(userId).get();
-            if (userDoc.exists) {
-              setUserData(userDoc.data());
-            } else {
-              console.log('No se encontraron datos para este usuario');
+        const fetchUserData = async () => {
+            try {
+                const currentUser = auth().currentUser;
+                if (currentUser) {
+                    const userId = currentUser.uid;
+                    const userDocRef = firestore().collection('users').doc(userId);
+
+                    // Suscribirse a cambios en los datos del usuario
+                    const unsubscribe = userDocRef.onSnapshot((doc) => {
+                        if (doc.exists) {
+                            setUserData(doc.data());
+                        } else {
+                            console.log('No se encontraron datos para este usuario');
+                        }
+                    });
+
+                    return () => unsubscribe(); // Limpiar la suscripción cuando se desmonte el componente
+                } else {
+                    console.log('No hay usuario autenticado');
+                }
+            } catch (error) {
+                console.error('Error al obtener los datos del usuario:', error);
             }
-          } else {
-            console.log('No hay usuario autenticado');
-          }
-        } catch (error) {
-          console.error('Error al obtener los datos del usuario:', error);
-        }
-      };
-    
-      fetchUserData();
+        };
+
+        fetchUserData();
     }, []);
 
     return (

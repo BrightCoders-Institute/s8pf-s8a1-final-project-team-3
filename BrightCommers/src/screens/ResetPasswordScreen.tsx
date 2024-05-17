@@ -1,48 +1,51 @@
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import auth from '@react-native-firebase/auth'
-import { TextInput } from 'react-native-gesture-handler'
+import React, { useState } from 'react';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import auth from '@react-native-firebase/auth';
+import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
 export default function ResetPasswordScreen() {
-    const navigation = useNavigation()
-    const [email, setEmail] = useState('')
+    const navigation = useNavigation();
+    const [email, setEmail] = useState('');
 
-    const ResetPassword = () => {
-        if (email === ''){
-            console.log('Please enter your email')
-            Alert.alert('Porfavor ingrese su correo')
-            return
-        } else {
-            auth().sendPasswordResetEmail(email)
+    const resetPassword = () => {
+        if (!email.trim()) {
+            Alert.alert('Please enter your email');
+            return;
+        }
+
+        auth().sendPasswordResetEmail(email)
             .then(() => {
-                console.log("Email sent")
-                Alert.alert("Email Enviado")
-                // Después de enviar el correo de restablecimiento, navegar de vuelta a la pantalla de inicio de sesión
-                navigation.navigate('Login')
+                Alert.alert('Email sent');
+                navigation.navigate('Login');
             })
             .catch((error) => {
-                console.log(error)
-                Alert.alert('Error al enviar el correo de restablecimiento')
-            })
-        }
-    }
+                console.error(error);
+                Alert.alert('Error sending reset email');
+            });
+    };
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{width: '100%', top: 0,}}>
-                <Text style={{textAlign: 'justify', fontSize: 17, fontWeight: '700'}}>
-                    Porfavor Ingrese el correo con el que esta registrado,
-                    Revise su correo para restablecer su contraseña.
+            <View>
+                <Text style={styles.infoText}>
+                    Please enter the email associated with your account.
+                    Check your email to reset your password.
                 </Text>
             </View>
-            <TextInput style={styles.input} onChangeText={(text) => setEmail(text)} value={email} placeholder='correo' />
-            <TouchableOpacity style={styles.button} onPress={ResetPassword}>
-                <Text style={{color: 'white', fontSize: 16}}>Reset Password</Text>
+            <TextInput
+                style={styles.input}
+                onChangeText={(text) => setEmail(text)}
+                value={email}
+                placeholder='Email'
+                keyboardType='email-address'
+            />
+            <TouchableOpacity style={styles.button} onPress={resetPassword}>
+                <Text style={styles.buttonText}>Reset Password</Text>
             </TouchableOpacity>
         </SafeAreaView>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -53,21 +56,31 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 10,
     },
+    infoText: {
+        textAlign: 'justify',
+        fontSize: 17,
+        fontWeight: '700',
+        marginBottom: 20,
+    },
     input: {
         padding: 13,
-        margin: 10,
+        marginVertical: 10,
         borderRadius: 5,
         borderWidth: 1,
         borderColor: 'gray',
         width: '100%',
     },
-    button:{
+    button: {
         padding: 10,
-        margin: 10,
+        marginVertical: 10,
         borderRadius: 5,
         backgroundColor: 'blue',
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-    }
-})
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
+    },
+});

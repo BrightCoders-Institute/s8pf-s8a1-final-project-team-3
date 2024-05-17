@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {StyleSheet, View, TextInput, Alert, Text, ScrollView, TouchableOpacity} from 'react-native';
+import { StyleSheet, View, TextInput, Alert, Text, ScrollView, TouchableOpacity } from 'react-native';
 import firestore from '@react-native-firebase/firestore'; 
-import auth from '@react-native-firebase/auth'
+import auth from '@react-native-firebase/auth';
 
-const ResetEmailperfil = ({user}) => {
-
+const ResetEmailperfil = ({ user }) => {
   const [password, setPassword] = useState('');
-  const [emailnuevo, setemailNuevo] = useState('');
-  const [userData, setUserData] = useState ('');
+  const [newEmail, setNewEmail] = useState('');
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -19,100 +18,87 @@ const ResetEmailperfil = ({user}) => {
           if (userDoc.exists) {
             setUserData(userDoc.data());
           } else {
-            console.log('No se encontraron datos para este usuario');
+            console.log('No user data found for this user');
           }
         } else {
-          console.log('No hay usuario autenticado');
+          console.log('No authenticated user');
         }
       } catch (error) {
-        console.error('Error al obtener los datos del usuario:', error);
+        console.error('Error fetching user data:', error);
       }
     };
-  
+
     fetchUserData();
   }, []);
 
-    const ChangeEmail = () => {
-        auth()
-          .signInWithEmailAndPassword(user.email, password)
-          .then(userCredential => {
-            // Actualizar el correo electrónico
-            const user = userCredential.user;
-            user.updateEmail(emailnuevo)
-              .then(() => {
-                saveUserDataEmail(user);
-                console.log('Correo electrónico actualizado exitosamente.');
-                Alert.alert('Correo electrónico actualizado exitosamente.');
-              })
-              .catch(error => {
-                console.error('Error al actualizar el correo electrónico:', error);
-              });
+  const changeEmail = () => {
+    auth()
+      .signInWithEmailAndPassword(user.email, password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        user.updateEmail(newEmail)
+          .then(() => {
+            saveUserDataEmail(user);
+            console.log('Email updated successfully.');
+            Alert.alert('Email updated successfully.');
           })
           .catch(error => {
-            console.error('Error al iniciar sesión:', error);
+            console.error('Error updating email:', error);
           });
-      };
+      })
+      .catch(error => {
+        console.error('Error signing in:', error);
+      });
+  };
 
-    const saveUserDataEmail = (user: any) => {
-        firestore()
-            .collection('users') // Selecciona la colección 'users'
-            .doc(user.uid) // Crea un documento con el ID del usuario
-            .set({ // Guarda los datos del usuario
-                name: userData.name,
-                lastname: userData.lastname,
-                email: emailnuevo,
-                uid: user.uid,
-                password: password
-            })
-            .then(() => {
-                console.log('User added!');
-            });
-    };
+  const saveUserDataEmail = (user) => {
+    firestore()
+      .collection('users')
+      .doc(user.uid)
+      .set({
+        name: userData.name,
+        lastname: userData.lastname,
+        email: newEmail,
+        uid: user.uid,
+        password: password
+      })
+      .then(() => {
+        console.log('User data updated!');
+      });
+  };
 
-    const  salir = () => {
-        auth()
-          .signOut()
-          .then(() => console.log('Usuario desconectado.'));
-      }
 
-      const check = () =>{
-        console.log(user.email)
-      }
-      
+
+  const check = () => {
+    console.log(user.email)
+  };
+
   return (
     <View style={styles.container}>
       <TextInput
-          value={user.email}
-          editable={false}
-          selectTextOnFocus={false}
-          style={{color: 'black'}}
-        />
+        value={user.email}
+        editable={false}
+        selectTextOnFocus={false}
+        style={styles.disabledInput}
+      />
       <TextInput
         style={styles.input}
-        placeholder="Nuevo correo electronico"
+        placeholder="New email"
         keyboardType="email-address"
-        value={emailnuevo}
-        onChangeText={setemailNuevo}
+        value={newEmail}
+        onChangeText={setNewEmail}
       />
-
       <TextInput
-        placeholder="contraseña"
+        placeholder="Password"
         value={password}
         secureTextEntry
         onChangeText={setPassword}
       />
-
-<TouchableOpacity onPress={ChangeEmail}>
-          <Text>check</Text>
-        </TouchableOpacity>
-
-<TouchableOpacity onPress={salir}>
-          <Text>salir</Text>
-        </TouchableOpacity>
-
+      <TouchableOpacity style={styles.button} onPress={changeEmail}>
+        <Text style={styles.buttonText}>Change Email</Text>
+      </TouchableOpacity>
+      
     </View>
-
-    
   );
 };
 
@@ -129,6 +115,27 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     marginBottom: 20,
     paddingHorizontal: 10,
+  },
+  disabledInput: {
+    color: 'black',
+    height: 40,
+    width: 300,
+    borderWidth: 1,
+    borderColor: 'gray',
+    marginBottom: 20,
+    paddingHorizontal: 10,
+    backgroundColor: '#f0f0f0',
+  },
+  button: {
+    backgroundColor: '#1F379A',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
   },
 });
 

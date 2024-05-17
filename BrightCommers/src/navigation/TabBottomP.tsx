@@ -19,6 +19,8 @@ import ShoppingScreen from '../screens/shoppingScreen';
 import ResetEmailperfil from '../screens/ResetEmailperfil';
 import ResetPassperfil from '../screens/ResetPassperfil';
 import ResetNamePerfil from '../screens/ResetNamePerfil';
+import CardPayment from '../screens/CardPayment';
+import Bag from '../assets/icons/bag3.svg';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import KitchenScreen from '../screens/kitchenScreen';
@@ -80,7 +82,7 @@ const TabBottomP = ({route}) => {
       />
 
       <Tab.Screen
-        name="Porfile"
+        name="Profile"
         component={StackPerfil}
         initialParams={{user : user}}
         options={{
@@ -98,6 +100,31 @@ const TabBottomP = ({route}) => {
               ]}>
               <Porfile />
               <Text style={{fontSize: 10}}>Porfile</Text>
+            </View>
+          ),
+        }}
+        />
+
+<Tab.Screen
+        name="Shopping"
+        component={CardPayment}
+        initialParams={{user : user}}
+        options={{
+          headerShown: true,
+          tabBarIcon: ({focused}) => (
+            <View
+              style={[
+                {
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: '100%',
+                  gap: 5,
+                },
+                Platform.OS === 'ios' && {marginTop: 20},
+              ]}>
+              <Bag />
+              <Text style={{fontSize: 10}}>Shopping</Text>
             </View>
           ),
         }}
